@@ -82,9 +82,6 @@ const WalletCard: React.FC<Props> = ({
     setConnectorId(walletConfig.connectorId)
     setSelectedWallet(title)
     onDismiss()
-    setTimeout(() => {
-      window.location.reload()
-    }, 500)
   }
 
   return (

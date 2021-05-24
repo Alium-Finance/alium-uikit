@@ -13,9 +13,7 @@ export enum ConnectorNames {
 type setConnectorId = (connectorId: typeof ConnectorNames[keyof typeof ConnectorNames] | null) => void
 
 const setConnectorId: setConnectorId = (connectorId) => {
-  const cookieOptions = getCookieOptions()
-  cookies.set(connectorLocalStorageKey, connectorId, cookieOptions)
-  window.localStorage.setItem(connectorLocalStorageKey, connectorId as string)
+  cookies.set(connectorLocalStorageKey, connectorId, getCookieOptions())
 }
 
 export default setConnectorId

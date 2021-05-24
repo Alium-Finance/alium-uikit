@@ -1,6 +1,6 @@
 # Alium UIkit
 
-[![Version](https://img.shields.io/npm/v/@aliumswap/uikit)](https://www.npmjs.com/package/@aliumswap/uikit) [![Size](https://img.shields.io/bundlephobia/min/@aliumswap/uikit)](https://www.npmjs.com/package/@aliumswap/uikit)
+[![Version](https://img.shields.io/npm/v/@alium-official/uikit)](https://www.npmjs.com/package/@alium-official/uikit) [![Size](https://img.shields.io/bundlephobia/min/@alium-official/uikit)](https://www.npmjs.com/package/@alium-official/uikit)
 
 Alium UIkit is a set of React components and hooks used to build pages on Alium's apps. It also contains a theme file for dark and light mode.
 

@@ -7,8 +7,7 @@ const cookies = new Cookies()
 type removeChainId = () => void
 
 const removeChainId: removeChainId = () => {
-  const cookieOptions = getCookieOptions()
-  cookies.remove(chainIdCookieKey, cookieOptions)
+  cookies.remove(chainIdCookieKey, getCookieOptions())
 }
 
 export default removeChainId

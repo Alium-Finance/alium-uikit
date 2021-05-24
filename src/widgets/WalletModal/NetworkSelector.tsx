@@ -5,8 +5,7 @@ import Flex from '../../components/Flex/Flex'
 import Text from '../../components/Text/Text'
 import Button from '../../components/Button/Button'
 import { NetworksConfig } from './types'
-import switchNetwork from '../../util/switchNetwork'
-import { getChainId } from '../../util'
+import { setChainId } from '../../util'
 
 const StyledNetworkSelector = styled(Button)`
   position: relative;
@@ -60,12 +59,10 @@ interface Props {
 
 const NetworkSelector: React.FC<Props> = ({ chainId, selected, networkConfig, setSelectedNetwork }) => {
   const { title, icon: Icon } = networkConfig
-  const id = getChainId()
-  if (selected && String(id) !== chainId) switchNetwork(chainId, false)
 
   const handleClick = () => {
     setSelectedNetwork(title)
-    switchNetwork(chainId, false)
+    setChainId(chainId)
   }
 
   return (

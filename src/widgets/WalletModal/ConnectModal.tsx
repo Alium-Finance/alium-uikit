@@ -9,8 +9,8 @@ import { Login } from './types'
 import Flex from '../../components/Flex/Flex'
 import Text from '../../components/Text/Text'
 import NetworkSelector from './NetworkSelector'
-import switchNetwork from '../../util/switchNetwork'
 import getChainId from '../../util/chainId/getChainId'
+import { setChainId } from '../../util'
 
 interface Props {
   login: Login
@@ -80,8 +80,6 @@ const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null, title = 
   const [selectedWallet, setSelectedWallet] = useState('')
 
   const handleClose = () => {
-    const currentChainId = getChainId()
-    if (id && currentChainId && currentChainId !== id) switchNetwork(String(currentChainId), false)
     onDismiss()
   }
 

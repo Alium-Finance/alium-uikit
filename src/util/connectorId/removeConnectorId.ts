@@ -7,9 +7,7 @@ const cookies = new Cookies()
 type removeConnectorId = () => void
 
 const removeConnectorId: removeConnectorId = () => {
-  const cookieOptions = getCookieOptions()
-  cookies.remove(connectorLocalStorageKey, cookieOptions)
-  window.localStorage.removeItem(connectorLocalStorageKey)
+  cookies.remove(connectorLocalStorageKey, getCookieOptions())
 }
 
 export default removeConnectorId

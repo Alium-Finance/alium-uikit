@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { NetworksConfig } from '../WalletModal/types'
 import { networks } from '../WalletModal/config'
 import { ArrowDropDownIcon, ArrowDropUpIcon } from '../../components/Svg'
-import switchNetwork from '../../util/switchNetwork'
-import { getChainId } from '../../util'
+import { getChainId, setChainId } from '../../util'
 
 const StyledDropDown = styled.div`
   width: 232px;
@@ -110,7 +109,7 @@ const NetworkSwitch: React.FC = () => {
 
   const handleClick = (item: NetworksConfig) => {
     setSelectedOption(item.label)
-    switchNetwork(item.chainId, true)
+    setChainId(item.chainId)
   }
 
   const { icon: Icon } = networks[networks.findIndex((network) => network.label === selectedOption)]

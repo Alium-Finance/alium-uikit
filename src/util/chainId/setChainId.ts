@@ -7,8 +7,7 @@ const cookies = new Cookies()
 type setChainId = (chainId: string | number) => void
 
 const setChainId: setChainId = (chainId) => {
-  const cookieOptions = getCookieOptions()
-  cookies.set(chainIdCookieKey, String(chainId), cookieOptions)
+  cookies.set(chainIdCookieKey, String(chainId), getCookieOptions())
 }
 
 export default setChainId
