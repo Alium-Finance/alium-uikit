@@ -15,12 +15,12 @@ export const wallets: WalletsConfig[] = [
     icon: Metamask,
     connectorId: ConnectorNames.Injected,
   },
-  {
-    title: 'Trust Wallet',
-    icon: TrustWallet,
-    connectorId: ConnectorNames.Injected,
-    mobile: true,
-  },
+  // {
+  //   title: 'Trust Wallet',
+  //   icon: TrustWallet,
+  //   connectorId: ConnectorNames.Injected,
+  //   mobile: true,
+  // },
   // {
   //   title: 'Math Wallet',
   //   icon: MathWallet,
