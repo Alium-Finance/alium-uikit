@@ -28,6 +28,6 @@ jobs:
       - name: Install dependincies
         run: yarn install
       - name: Publish package
-        run: npm publish --access public
+        run: npm version patch --force && npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
