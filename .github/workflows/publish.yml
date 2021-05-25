@@ -27,7 +27,12 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install dependincies
         run: yarn install
+      - name: Build
+        run: yarn build
       - name: Publish package
-        run: npm version patch --force && npm publish --access public
+        run: |
+          git config --global user.name "alium-official"
+          git config --global user.email "aliumswap@protonmail.com"
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
