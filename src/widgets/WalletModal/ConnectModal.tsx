@@ -11,6 +11,7 @@ import Text from '../../components/Text/Text'
 import NetworkSelector from './NetworkSelector'
 import getChainId from '../../util/chainId/getChainId'
 import { setChainId } from '../../util'
+import { isMobile } from 'react-device-detect'
 
 interface Props {
   login: Login
@@ -109,17 +110,31 @@ const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null, title = 
         <Text style={{ fontSize: '14px', color: '#0B1359', marginLeft: '16px' }}>Choose Wallet</Text>
       </StyledFlexPoint>
       <StyledWalletFlex>
-        {wallets.map((entry) => (
-          <WalletCard
-            key={entry.title}
-            login={login}
-            selected={entry.title === selectedWallet}
-            walletConfig={entry}
-            onDismiss={onDismiss}
-            setSelectedWallet={setSelectedWallet}
-            selectedNetwork={selectedNetwork}
-          />
-        ))}
+        {wallets.map((entry) => {
+          return entry.mobile ? (
+            isMobile && (
+              <WalletCard
+                key={entry.title}
+                login={login}
+                selected={entry.title === selectedWallet}
+                walletConfig={entry}
+                onDismiss={onDismiss}
+                setSelectedWallet={setSelectedWallet}
+                selectedNetwork={selectedNetwork}
+              />
+            )
+          ) : (
+            <WalletCard
+              key={entry.title}
+              login={login}
+              selected={entry.title === selectedWallet}
+              walletConfig={entry}
+              onDismiss={onDismiss}
+              setSelectedWallet={setSelectedWallet}
+              selectedNetwork={selectedNetwork}
+            />
+          )
+        })}
       </StyledWalletFlex>
       <HelpLink href="https://aliumswap.medium.com/how-to-set-up-a-wallet-to-use-alium-finance-cca9fa7cb8b0" external>
         <HelpIcon color="primary" mr="6px" height="18px" width="18px" />

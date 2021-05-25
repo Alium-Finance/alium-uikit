@@ -13,6 +13,7 @@ export interface WalletsConfig {
   title: string
   icon: FC<SvgProps>
   connectorId: ConnectorNames
+  mobile?: Boolean
 }
 
 export interface NetworksConfig {

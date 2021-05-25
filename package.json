@@ -74,6 +74,7 @@
     "@types/lodash": "^4.14.162",
     "@types/styled-system": "^5.1.10",
     "lodash": "^4.17.20",
+    "react-device-detect": "^1.17.0",
     "react-loader-spinner": "^4.0.0",
     "react-transition-group": "^4.4.1",
     "styled-system": "^5.1.5",
