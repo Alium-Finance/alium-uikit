@@ -8,19 +8,24 @@ import Binance from './icons/Binance'
 import Huobi from './icons/Huobi'
 
 import { WalletsConfig, ConnectorNames, NetworksConfig } from './types'
+import { isMobile } from 'react-device-detect'
+
+const isMobileWallet = (anotherWallet: ConnectorNames) => {
+  return isMobile ? ConnectorNames.WalletConnect : anotherWallet
+}
 
 export const wallets: WalletsConfig[] = [
   {
     title: 'Metamask',
     icon: Metamask,
-    connectorId: ConnectorNames.Injected,
+    connectorId: isMobileWallet(ConnectorNames.Injected),
   },
-  // {
-  //   title: 'Trust Wallet',
-  //   icon: TrustWallet,
-  //   connectorId: ConnectorNames.Injected,
-  //   mobile: true,
-  // },
+  {
+    title: 'Trust Wallet',
+    icon: TrustWallet,
+    connectorId: isMobileWallet(ConnectorNames.Injected),
+    mobile: true,
+  },
   // {
   //   title: 'Math Wallet',
   //   icon: MathWallet,
@@ -29,7 +34,7 @@ export const wallets: WalletsConfig[] = [
   {
     title: 'Token Pocket',
     icon: TokenPocket,
-    connectorId: ConnectorNames.Injected,
+    connectorId: isMobileWallet(ConnectorNames.Injected),
   },
   {
     title: 'Wallet Connect',
