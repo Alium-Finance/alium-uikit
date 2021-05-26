@@ -12,11 +12,14 @@ import NetworkSelector from './NetworkSelector'
 import getChainId from '../../util/chainId/getChainId'
 import { setChainId } from '../../util'
 import { isMobile } from 'react-device-detect'
+import { ErrorConnect } from '../Toast/types'
+import ToastPending from '../../components/ToastPending/ToastPending'
 
 interface Props {
   login: Login
   onDismiss?: () => void
   title?: string
+  errorConnect?: ErrorConnect
 }
 
 const HelpLink = styled(Link)`
@@ -72,7 +75,12 @@ const StyledWalletFlex = styled(StyledFlex)`
   }
 `
 
-const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null, title = 'Connect to a wallet' }) => {
+const ConnectModal: React.FC<Props> = ({
+  login,
+  onDismiss = () => null,
+  title = 'Connect to a wallet',
+  errorConnect,
+}) => {
   const id = getChainId()
 
   const [selectedNetwork, setSelectedNetwork] = useState(
@@ -86,6 +94,7 @@ const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null, title = 
 
   return (
     <Modal title={title} onDismiss={handleClose}>
+      <ToastPending error={errorConnect} />
       <StyledFlexPoint alignItems="center" marginBottom="5px">
         <StyledPoint>
           <p>1</p>

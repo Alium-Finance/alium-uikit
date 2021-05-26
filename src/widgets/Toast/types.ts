@@ -33,3 +33,9 @@ export interface ToastProps {
   ttl: number
   style: Partial<CSSStyleDeclaration>
 }
+
+export type ErrorConnect = Error & { code?: string }
+
+export enum ErrorNetworkConnection {
+  PENDING = '-32002',
+}

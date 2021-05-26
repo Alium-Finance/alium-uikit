@@ -4,6 +4,7 @@ import ConnectModal from './ConnectModal'
 import AccountModal from './AccountModal'
 import { Login } from './types'
 import { getChainId } from '../../util'
+import { ErrorConnect } from '../Toast/types'
 
 interface ReturnType {
   onPresentConnectModal: () => void
@@ -20,11 +21,12 @@ const useWalletModal = (
   explorerName?: string,
   explorerLink?: string,
   onTransactionHistoryHandler?: void,
-  balanceHook?: void
+  balanceHook?: void,
+  errorConnect?: ErrorConnect
 ): ReturnType => {
   const id = getChainId()
 
-  const [onPresentConnectModal] = useModal(<ConnectModal login={login} title={title} />)
+  const [onPresentConnectModal] = useModal(<ConnectModal login={login} title={title} errorConnect={errorConnect} />)
   const [onPresentAccountModal] = useModal(
     <AccountModal
       account={account || ''}
