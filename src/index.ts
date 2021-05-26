@@ -22,6 +22,7 @@ export * from './components/Skeleton'
 export * from './components/Toggle'
 export * from './components/Table'
 export * from './components/SocialNetworks'
+export * from './components/ToastPending'
 
 // Hooks
 export * from './hooks'

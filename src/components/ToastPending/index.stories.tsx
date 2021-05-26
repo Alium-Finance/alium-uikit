@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Button } from '../../components/Button'
-import { ErrorConnect } from '../Toast/types'
+import { ErrorConnect } from '../../widgets/Toast'
+import { Button } from '../Button'
 import ToastPending from './ToastPending'
 
 export default {

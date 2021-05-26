@@ -1,13 +1,14 @@
 import React, { FC, useEffect, useState } from 'react'
-import { alertVariants } from '../../components/Alert'
-import Toast from '../Toast/Toast'
-import { ErrorConnect, ErrorNetworkConnection, ToastProps } from '../Toast/types'
+import { ErrorConnect } from '../../widgets/Toast'
+import Toast from '../../widgets/Toast/Toast'
+import { ErrorNetworkConnection, ToastProps } from '../../widgets/Toast/types'
+import { alertVariants } from '../Alert'
 
 type Props = {
   error?: ErrorConnect
 }
 
-const isPendig = (error: Error & { code?: string }) => {
+const isPendig = (error: ErrorConnect) => {
   return Boolean(error?.code && error.code?.toString() === ErrorNetworkConnection.PENDING)
 }
 const ToastPending: FC<Props> = ({ error }) => {
