@@ -1,7 +1,8 @@
 import React, { FC, useEffect, useState } from 'react'
-import Toast from '../../widgets/Toast/Toast'
-import { ErrorConnect, ErrorNetworkConnection, ToastProps } from '../../widgets/Toast/types'
-import { alertVariants } from '../Alert'
+import { alertVariants } from '../../components/Alert'
+import Toast from '../Toast/Toast'
+import { ErrorConnect, ErrorNetworkConnection, ToastProps } from '../Toast/types'
+
 type Props = {
   error?: ErrorConnect
 }

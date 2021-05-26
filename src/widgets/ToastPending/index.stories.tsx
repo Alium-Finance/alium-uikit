@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
-import { sample } from 'lodash'
-import { alertVariants } from '../../components/Alert'
-import Button from '../../components/Button/Button'
+import { Button } from '../../components/Button'
+import { ErrorConnect } from '../Toast/types'
 import ToastPending from './ToastPending'
-import { getMainDomain } from '../../util'
-import { ErrorConnect } from '../../widgets/Toast/types'
 
 export default {
   title: 'components/ToastPending',
@@ -35,7 +32,7 @@ export const Default: React.FC = () => {
       >
         Clear
       </Button>
-      <ToastPending error={error} />
+      {error && <ToastPending error={error} />}
     </div>
   )
 }
