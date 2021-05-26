@@ -1,3 +1,4 @@
+export { default as getCurrentHost } from './getCurrentHost'
 export { default as getChainId } from './chainId/getChainId'
 export { default as removeChainId } from './chainId/removeChainId'
 export { default as setChainId } from './chainId/setChainId'
