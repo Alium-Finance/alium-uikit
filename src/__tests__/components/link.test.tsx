@@ -1,15 +1,17 @@
 import React from 'react'
-import { renderWithTheme } from '../../testHelpers'
 import { Link, LinkExternal } from '../../components/Link'
+import { renderWithTheme } from '../../testHelpers'
+import { getMainDomain } from '../../util'
 
 it('renders link correctly', () => {
-  const { asFragment } = renderWithTheme(<Link href="https://alium.finance">Link</Link>)
+  const href = `https://${getMainDomain}`
+  const { asFragment } = renderWithTheme(<Link href={href}>Link</Link>)
   expect(asFragment()).toMatchInlineSnapshot(`
     <DocumentFragment>
       <a
         class="sc-bdfBwQ sc-gsTCUz cxXgLd djpNeP"
         color="primary"
-        href="https://alium.finance"
+        href={href}
       >
         Link
       </a>
@@ -18,13 +20,14 @@ it('renders link correctly', () => {
 })
 
 it('renders link external link correctly', () => {
-  const { asFragment } = renderWithTheme(<LinkExternal href="https://alium.finance">Link</LinkExternal>)
+  const href = `https://${getMainDomain}`
+  const { asFragment } = renderWithTheme(<LinkExternal href={href}>Link</LinkExternal>)
   expect(asFragment()).toMatchInlineSnapshot(`
     <DocumentFragment>
       <a
         class="sc-bdfBwQ sc-gsTCUz cxXgLd djpNeP"
         color="primary"
-        href="https://alium.finance"
+        href={href}
         rel="noreferrer noopener"
         target="_blank"
       >

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Meta } from '@storybook/react/types-6-0'
 import ButtonMenu from './ButtonMenu'
 import ButtonMenuItem from './ButtonMenuItem'
+import { getMainDomain } from '../../util'
 
 const Row = styled.div`
   margin-bottom: 32px;
@@ -23,7 +24,9 @@ export const Default: React.FC = () => {
   const [index, setIndex] = useState(0)
   const [index1, setIndex1] = useState(1)
 
+  // @ts-ignore
   const handleClick = (newIndex) => setIndex(newIndex)
+  // @ts-ignore
   const handleClick1 = (newIndex) => setIndex1(newIndex)
 
   return (
@@ -69,13 +72,13 @@ export const AsLinks: React.FC = () => {
     <>
       <Row>
         <ButtonMenu activeIndex={0}>
-          <ButtonMenuItem as="a" href="https://alium.finance">
+          <ButtonMenuItem as="a" href={`https://${getMainDomain()}`}>
             Link 1
           </ButtonMenuItem>
-          <ButtonMenuItem as="a" href="https://alium.finance">
+          <ButtonMenuItem as="a" href={`https://${getMainDomain()}`}>
             Link 2
           </ButtonMenuItem>
-          <ButtonMenuItem as="a" href="https://alium.finance">
+          <ButtonMenuItem as="a" href={`https://${getMainDomain()}`}>
             Link 3
           </ButtonMenuItem>
         </ButtonMenu>

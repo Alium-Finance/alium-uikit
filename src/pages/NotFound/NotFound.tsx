@@ -1,13 +1,13 @@
 import React from 'react'
-
 import styled from 'styled-components'
 import { Button } from '../../components/Button'
-import { Text } from '../../components/Text'
 import { Heading } from '../../components/Heading'
 import { SocialNetworks } from '../../components/SocialNetworks'
-import NotfoundPreview from './assets/notfound-preview'
-import CloudRight from './assets/background-cloud-right'
+import { Text } from '../../components/Text'
+import { getMainDomain } from '../../util'
 import CloudLeft from './assets/background-cloud-left'
+import CloudRight from './assets/background-cloud-right'
+import NotfoundPreview from './assets/notfound-preview'
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -64,22 +64,27 @@ const CloudsWrapper = styled.div`
 const CloudWrapper = styled.div`
   position: absolute;
   z-index: -1;
+
   & > img {
     width: 100%;
   }
+
   &.left {
     top: -200px;
     left: -200px;
   }
+
   &.right {
     right: -200px;
     bottom: -200px;
   }
+
   @media screen and (max-width: 480px) {
     &.left {
       top: -300px;
       left: -300px;
     }
+
     &.right {
       right: -300px;
       bottom: -300px;
@@ -144,7 +149,7 @@ type PropsType = {
   redirectURL?: string
 }
 
-const NotFound: React.FC<PropsType> = ({ redirectURL = 'https://alium.finance/' }) => {
+const NotFound: React.FC<PropsType> = ({ redirectURL = `https://${getMainDomain()}` }) => {
   return (
     <StyledWrapper>
       <InfoWrapper>

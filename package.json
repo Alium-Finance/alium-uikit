@@ -1,15 +1,15 @@
 {
   "name": "@alium-official/uikit",
-  "version": "0.11.68",
+  "version": "0.11.69",
   "description": "Set of UI components for alium projects",
+  "repository": "https://github.com/alium-official/alium-uikit",
+  "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/alium-official/alium-uikit",
-  "license": "MIT",
   "scripts": {
     "build": "rimraf ./dist && rollup -c && tsc -d --emitDeclarationOnly --declarationDir dist",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
@@ -23,6 +23,17 @@
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.js"
     ]
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.162",
+    "@types/styled-system": "^5.1.10",
+    "lodash": "^4.17.20",
+    "react-device-detect": "^1.17.0",
+    "react-loader-spinner": "^4.0.0",
+    "react-transition-group": "^4.4.1",
+    "styled-system": "^5.1.5",
+    "typeface-roboto": "^1.1.13",
+    "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -51,7 +62,9 @@
     "jest": "^26.6.3",
     "jest-styled-components": "^7.0.3",
     "np": "^7.4.0",
-    "prettier": "^2.1.2",
+    "prettier": "^2.3.0",
+    "prettier-plugin-organize-imports": "^2.0.0",
+    "prettier-plugin-packagejson": "^2.2.11",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-is": "^17.0.1",
@@ -69,17 +82,6 @@
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.0"
-  },
-  "dependencies": {
-    "@types/lodash": "^4.14.162",
-    "@types/styled-system": "^5.1.10",
-    "lodash": "^4.17.20",
-    "react-device-detect": "^1.17.0",
-    "react-loader-spinner": "^4.0.0",
-    "react-transition-group": "^4.4.1",
-    "styled-system": "^5.1.5",
-    "typeface-roboto": "^1.1.13",
-    "universal-cookie": "^4.0.4"
   },
   "publishConfig": {
     "access": "public",
