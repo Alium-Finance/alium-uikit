@@ -21,7 +21,7 @@ const ToastPending: FC<Props> = ({ error }) => {
     if (error && isPendig(error)) {
       setToast({
         id: 'id-pending',
-        title: 'Opened in another window',
+        title: 'Confirm the action in your wallet',
         description: '',
         type: alertVariants.DANGER,
       })
