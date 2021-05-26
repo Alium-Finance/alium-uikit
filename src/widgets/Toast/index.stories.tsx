@@ -3,6 +3,7 @@ import { sample } from 'lodash'
 import { alertVariants } from '../../components/Alert'
 import Button from '../../components/Button/Button'
 import ToastContainer from './ToastContainer'
+import { getMainDomain } from '../../util'
 
 export default {
   title: 'Widgets/Toast',
@@ -19,13 +20,16 @@ export const Default: React.FC = () => {
       id: `id-${now}`,
       title: `Title: ${now}`,
       description,
+      // @ts-ignore
       type: alertVariants[sample(Object.keys(alertVariants))],
     }
 
+    // @ts-ignore
     setToasts((prevToasts) => [randomToast, ...prevToasts])
   }
 
   const handleRemove = (id: string) => {
+    // @ts-ignore
     setToasts((prevToasts) => prevToasts.filter((prevToast) => prevToast.id !== id))
   }
 
@@ -58,15 +62,18 @@ export const WithAction: React.FC = () => {
       description: 'A description of a toast with a call to action',
       action: {
         text: 'Action Button',
-        url: 'https://alium.finance',
+        url: `https://${getMainDomain()}`,
       },
+      // @ts-ignore
       type: alertVariants[sample(Object.keys(alertVariants))],
     }
 
+    // @ts-ignore
     setToasts((prevToasts) => [randomToast, ...prevToasts])
   }
 
   const handleRemove = (id: string) => {
+    // @ts-ignore
     setToasts((prevToasts) => prevToasts.filter((prevToast) => prevToast.id !== id))
   }
 

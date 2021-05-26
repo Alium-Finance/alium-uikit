@@ -7,6 +7,7 @@ import { LogoIcon, AddIcon, AutoRenewIcon, CloseIcon } from '../Svg'
 import Button from './Button'
 import IconButton from './IconButton'
 import { variants } from './types'
+import { getMainDomain } from '../../util'
 
 const Row = styled(Flex)`
   margin-bottom: 32px;
@@ -44,13 +45,13 @@ export const Variants: React.FC = () => {
   return (
     <BrowserRouter>
       <Row>
-        <Button as="a" href="https://alium.finance" target="_blank" rel="noreferrer">
+        <Button as="a" href={`https://${getMainDomain()}`} target="_blank" rel="noreferrer">
           As an anchor
         </Button>
         <Button as={Link} to="/router-link" variant="secondary">
           As an React Router link
         </Button>
-        <Button as="a" href="https://alium.finance" disabled>
+        <Button as="a" href={`https://${getMainDomain()}`} disabled>
           As an anchor (disabled)
         </Button>
       </Row>

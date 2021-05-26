@@ -1,4 +1,5 @@
 import { externalLinks } from '../../config'
+import { getMainDomain } from '../../util'
 
 export const links = [
   {
@@ -12,11 +13,11 @@ export const links = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://exchange.alium.finance',
+        href: `https://exchange.${getMainDomain()}`,
       },
       {
         label: 'Liquidity',
-        href: 'https://exchange.alium.finance/#/pool',
+        href: `https://exchange.${getMainDomain()}/#/pool`,
       },
     ],
   },
@@ -35,7 +36,7 @@ export const links = [
       },
       {
         label: 'Docs',
-        href: 'https://docs.alium.finance',
+        href: `https://docs.${getMainDomain()}`,
       },
       {
         label: 'Blog',
@@ -53,7 +54,7 @@ export const links = [
       },
       {
         label: 'Docs',
-        href: 'https://docs.alium.finance',
+        href: `https://docs.${getMainDomain()}`,
       },
       {
         label: 'Blog',
