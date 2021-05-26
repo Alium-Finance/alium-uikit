@@ -34,7 +34,7 @@ export interface ToastProps {
   style: Partial<CSSStyleDeclaration>
 }
 
-export type ErrorConnect = Error & { code?: string }
+export type ErrorConnect = (Error & { code?: string }) | null | undefined
 
 export enum ErrorNetworkConnection {
   PENDING = '-32002',
