@@ -18,12 +18,12 @@ export const wallets: WalletsConfig[] = [
   {
     title: 'Metamask',
     icon: Metamask,
-    connectorId: isMobileWallet(ConnectorNames.Injected),
+    connectorId: ConnectorNames.Injected,
   },
   {
     title: 'Trust Wallet',
     icon: TrustWallet,
-    connectorId: isMobileWallet(ConnectorNames.Injected),
+    connectorId: ConnectorNames.Injected,
     mobile: true,
   },
   // {
