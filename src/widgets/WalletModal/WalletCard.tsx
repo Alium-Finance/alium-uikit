@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Button from '../../components/Button/Button'
 import Text from '../../components/Text/Text'
@@ -6,6 +6,7 @@ import { Login, WalletsConfig } from './types'
 import Flex from '../../components/Flex/Flex'
 import { CheckmarkCircleIcon } from '../../components/Svg'
 import setConnectorId from '../../util/connectorId/setConnectorId'
+import ConnectionLoad from '../../components/ConnectionLoad'
 
 interface Props {
   walletConfig: WalletsConfig
@@ -76,12 +77,19 @@ const WalletCard: React.FC<Props> = ({
   selectedNetwork,
 }) => {
   const { title, icon: Icon } = walletConfig
-
-  const onClickHandler = () => {
-    login(walletConfig.connectorId)
-    setConnectorId(walletConfig.connectorId)
-    setSelectedWallet(title)
-    onDismiss()
+  const [connectionLoad, setconnectionLoad] = React.useState(false)
+  const onClickHandler = async () => {
+    setconnectionLoad(true)
+    try {
+      await login(walletConfig.connectorId)
+      setConnectorId(walletConfig.connectorId)
+      setSelectedWallet(title)
+      onDismiss()
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setconnectionLoad(false)
+    }
   }
 
   return (
@@ -91,6 +99,7 @@ const WalletCard: React.FC<Props> = ({
       onClick={title !== 'Metamask' && selectedNetwork === 'Huobi' ? undefined : onClickHandler}
       isBlurred={title !== 'Metamask' && selectedNetwork === 'Huobi'}
     >
+      <ConnectionLoad load={connectionLoad} />
       <StyledButton
         fullwidth
         variant="tertiary"

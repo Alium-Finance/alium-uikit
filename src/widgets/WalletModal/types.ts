@@ -7,7 +7,7 @@ export enum ConnectorNames {
   BSC = 'bsc',
 }
 
-export type Login = (connectorId: ConnectorNames) => void
+export type Login = (connectorId: ConnectorNames) => Promise<void>
 
 export interface WalletsConfig {
   title: string
