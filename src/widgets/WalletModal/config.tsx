@@ -23,7 +23,7 @@ export const wallets: WalletsConfig[] = [
   {
     title: 'Trust Wallet',
     icon: TrustWallet,
-    connectorId: ConnectorNames.Injected,
+    connectorId: isMobileWallet(ConnectorNames.Injected),
     mobile: true,
   },
   // {
