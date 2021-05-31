@@ -40,7 +40,8 @@ const useMatchBreakpoints = (): State => {
   const [state, setState] = useState<State>(() => {
     return Object.keys(mediaQueries).reduce((accum, size) => {
       const key = getKey(size)
-      const mql = window.matchMedia(mediaQueries[size])
+
+      const mql = typeof window !== 'undefined' ? window.matchMedia(mediaQueries[size]) : { matches: null }
       return { ...accum, [key]: mql.matches }
     }, {})
   })
