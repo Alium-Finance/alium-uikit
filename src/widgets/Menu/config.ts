@@ -90,6 +90,11 @@ export const socials = [
     icon: 'CoinGeckoIcon',
     href: externalLinks.coingecko,
   },
+  {
+    label: 'Bscscan',
+    icon: 'BscscanIcon',
+    href: externalLinks.bscscan,
+  },
 ]
 
 export const MENU_HEIGHT = 97
