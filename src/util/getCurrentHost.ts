@@ -1,5 +1,5 @@
 const getCurrentHost = (): string => {
-  return window.location.host
+  return typeof window !== 'undefined' ? window.location.host : 'alium.finance'
 }
 
 export default getCurrentHost
