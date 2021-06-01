@@ -110,6 +110,9 @@ const NetworkSwitch: React.FC = () => {
   const handleClick = (item: NetworksConfig) => {
     setSelectedOption(item.label)
     setChainId(item.chainId)
+    setTimeout(() => {
+      window.location.reload()
+    }, 0)
   }
 
   const { icon: Icon } = networks[networks.findIndex((network) => network.label === selectedOption)]
