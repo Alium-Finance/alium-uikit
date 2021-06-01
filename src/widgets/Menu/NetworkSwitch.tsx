@@ -101,10 +101,12 @@ const StyledIconContainer = styled.div`
     height: 24px;
   }
 `
-
-const NetworkSwitch: React.FC = () => {
+type Props = {
+  chainId?: number | null
+}
+const NetworkSwitch: React.FC<Props> = ({ chainId }) => {
   const [showOptions, setShowOptions] = useState(false)
-  const id = getChainId()
+  const id = chainId || getChainId()
   const [selectedOption, setSelectedOption] = useState(id === 256 || id === 128 ? networks[1].label : networks[0].label)
 
   const handleClick = (item: NetworksConfig) => {

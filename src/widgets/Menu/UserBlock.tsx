@@ -44,7 +44,7 @@ const StyledButtonTitle = styled.div`
 
 const UserBlock: React.FC<Props> = (props) => {
   const { account, login, logout, buttonTitle, modalTitle, modelLogout, balance, explorerName, explorerLink, onTransactionHistoryHandler, balanceHook } = props
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(
+  const { onPresentConnectModal, onPresentAccountModal, chainId } = useWalletModal(
     login,
     logout,
     account,
@@ -59,7 +59,7 @@ const UserBlock: React.FC<Props> = (props) => {
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null
   return (
     <Flex alignItems="center">
-      <NetworkSwitch />
+      <NetworkSwitch chainId={chainId} />
       {account ? (
         <Button
           size="md"

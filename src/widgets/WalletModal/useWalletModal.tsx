@@ -8,6 +8,7 @@ import { getChainId } from '../../util'
 interface ReturnType {
   onPresentConnectModal: () => void
   onPresentAccountModal: () => void
+  chainId?: number | null
 }
 
 const useWalletModal = (
@@ -43,7 +44,7 @@ const useWalletModal = (
   // useEffect(()=>{
   //   onPresentAccountModal()
   // }, [balance])
-  return { onPresentConnectModal, onPresentAccountModal }
+  return { onPresentConnectModal, onPresentAccountModal, chainId: id }
 }
 
 export default useWalletModal
