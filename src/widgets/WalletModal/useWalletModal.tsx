@@ -4,6 +4,7 @@ import ConnectModal from './ConnectModal'
 import AccountModal from './AccountModal'
 import { Login } from './types'
 import { getChainId } from '../../util'
+import { ConnectorNames } from '../../util/connectorId/setConnectorId'
 
 interface ReturnType {
   onPresentConnectModal: () => void
@@ -23,9 +24,23 @@ const useWalletModal = (
   onTransactionHistoryHandler?: void,
   balanceHook?: void
 ): ReturnType => {
-  const id = getChainId()
+  const [id, setId] = React.useState(getChainId())
 
-  const [onPresentConnectModal] = useModal(<ConnectModal login={login} title={title} />)
+  const loginWithUpdateNetwork = async (connectorId: ConnectorNames): Promise<void> => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        await login(connectorId)
+        setTimeout(() => {
+          setId(getChainId())
+        }, 0)
+        resolve()
+      } catch (error) {
+        reject(error)
+      }
+    })
+  }
+
+  const [onPresentConnectModal] = useModal(<ConnectModal login={loginWithUpdateNetwork} title={title} />)
   const [onPresentAccountModal] = useModal(
     <AccountModal
       account={account || ''}
