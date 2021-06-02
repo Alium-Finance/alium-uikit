@@ -106,12 +106,25 @@ type Props = {
 }
 const NetworkSwitch: React.FC<Props> = ({ chainId }) => {
   const [showOptions, setShowOptions] = useState(false)
-  const id = chainId || getChainId()
+  const [id, setId] = useState(chainId || getChainId())
   const [selectedOption, setSelectedOption] = useState(id === 256 || id === 128 ? networks[1].label : networks[0].label)
+
+  const updateNetworkChain = (networkId: number) => {
+    setId(networkId)
+    setSelectedOption(networkId === 256 || networkId === 128 ? networks[1].label : networks[0].label)
+  }
+
+  React.useEffect(() => {
+    // when user update network from wallet
+    if (chainId && id !== chainId) {
+      updateNetworkChain(chainId)
+    }
+  }, [chainId])
 
   const handleClick = (item: NetworksConfig) => {
     setSelectedOption(item.label)
     setChainId(item.chainId)
+    setId(item.chainId)
     setTimeout(() => {
       window.location.reload()
     }, 0)

@@ -5,7 +5,7 @@ import { useWalletModal } from '../WalletModal'
 import { Login } from '../WalletModal/types'
 import { AddIcon } from '../../components/Svg'
 import NetworkSwitch from './NetworkSwitch'
-import Flex from "../../components/Flex/Flex";
+import Flex from '../../components/Flex/Flex'
 
 interface Props {
   account?: string
@@ -17,8 +17,8 @@ interface Props {
   balance?: string
   explorerName?: string
   explorerLink?: string
-  onTransactionHistoryHandler?: any;
-  balanceHook?: any;
+  onTransactionHistoryHandler?: any
+  balanceHook?: any
 }
 
 const StyledConnectButton = styled.div`
@@ -43,7 +43,19 @@ const StyledButtonTitle = styled.div`
 `
 
 const UserBlock: React.FC<Props> = (props) => {
-  const { account, login, logout, buttonTitle, modalTitle, modelLogout, balance, explorerName, explorerLink, onTransactionHistoryHandler, balanceHook } = props
+  const {
+    account,
+    login,
+    logout,
+    buttonTitle,
+    modalTitle,
+    modelLogout,
+    balance,
+    explorerName,
+    explorerLink,
+    onTransactionHistoryHandler,
+    balanceHook,
+  } = props
   const { onPresentConnectModal, onPresentAccountModal, chainId } = useWalletModal(
     login,
     logout,
