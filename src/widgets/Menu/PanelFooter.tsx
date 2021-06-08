@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SvgProps } from '../../components/Svg'
 import Flex from '../../components/Flex/Flex'
 import Link from '../../components/Link/Link'
-import * as IconModule from './icons'
+import { SvgProps } from '../../components/Svg'
 import { socials } from './config'
+import * as IconModule from './icons'
 import { PanelProps, PushedProps } from './types'
+import ViewAlmPrice from './ViewAlmPrice'
 
 interface Props extends PanelProps, PushedProps {}
 
-const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> }
+const Icons = IconModule as unknown as { [key: string]: React.FC<SvgProps> }
 
 const Container = styled.div<{ isPushed?: boolean }>`
   flex: none;
@@ -49,6 +50,7 @@ const StyledExternalLink = styled(Link)`
 const PanelFooter: React.FC<Props> = ({ isPushed }) => {
   return (
     <Container isPushed={isPushed}>
+      <ViewAlmPrice />
       <SocialEntry>
         <Flex flexWrap="wrap" justifyContent="space-evenly" style={{ width: '100%' }}>
           {socials.map((social, index) => {
