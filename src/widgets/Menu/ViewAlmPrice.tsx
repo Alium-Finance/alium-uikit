@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
+import getMainDomain from '../../util/getMainDomain'
 import { IconTokenAlm } from './icons/IconTokenAlm'
 
 const Styled = styled.div`
@@ -35,9 +36,10 @@ const IconWrapper = styled.div`
 
 const ViewAlmPrice: FC = () => {
   const [price, setPrice] = useState<null | string>(null)
-
+  let mainDomain = getMainDomain()
+  mainDomain = mainDomain.includes('localhost') ? 'alium.finance' : mainDomain
   useEffect(() => {
-    fetch('http://localhost:3000/api/get-price/alium-swap/usd')
+    fetch(`https://stat.${mainDomain}/api/get-price/alium-swap/usd`)
       .then((rawResponse) => {
         return rawResponse.json()
       })
