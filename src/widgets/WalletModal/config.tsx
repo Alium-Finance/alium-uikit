@@ -14,6 +14,11 @@ const isMobileWallet = (anotherWallet: ConnectorNames) => {
   return isMobile ? ConnectorNames.WalletConnect : anotherWallet
 }
 
+const isWeb3Detect = () => {
+  const global: any = window
+  return Boolean(global?.web3)
+}
+
 export const wallets: WalletsConfig[] = [
   {
     title: 'Metamask',
@@ -23,7 +28,7 @@ export const wallets: WalletsConfig[] = [
   {
     title: 'Trust Wallet',
     icon: TrustWallet,
-    connectorId: isMobileWallet(ConnectorNames.Injected),
+    connectorId: isWeb3Detect() ? ConnectorNames.Injected : isMobileWallet(ConnectorNames.Injected),
     mobile: true,
   },
   // {
