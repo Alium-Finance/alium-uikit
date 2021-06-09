@@ -14,12 +14,18 @@ const Styled = styled.div`
   transition: all 500ms ease-out;
   opacity: 0;
 
-  &.true {
+  &.visible {
     opacity: 1;
   }
 
   @media screen and (min-width: 768px) {
     margin-right: 25px;
+  }
+
+  @media screen and (min-width: 968px) {
+    &.with-indent {
+      margin-left: 180px;
+    }
   }
 `
 
@@ -59,7 +65,11 @@ const TextWrapper = styled.div`
   }
 `
 
-const ViewAlmPrice: FC = () => {
+type props = {
+  isPushed: boolean
+}
+
+const ViewAlmPrice: FC<props> = ({ isPushed }) => {
   const [price, setPrice] = useState<null | string>(null)
 
   useEffect(() => {
@@ -78,7 +88,7 @@ const ViewAlmPrice: FC = () => {
   }, [])
 
   return (
-    <Styled className={price ? 'true' : 'false'}>
+    <Styled className={`${price ? 'visible' : ''} ${isPushed ? 'with-indent' : ''}`}>
       <IconWrapper>
         <IconTokenAlm />
       </IconWrapper>

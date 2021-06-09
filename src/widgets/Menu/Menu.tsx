@@ -151,6 +151,17 @@ const StyledClickableLink = styled.a`
   }
 `
 
+const TopWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+
+  @media screen and (min-width: 968px) {
+    justify-content: space-between;
+  }
+`
+
 const Menu: React.FC<NavProps> = ({
   account,
   login,
@@ -218,9 +229,9 @@ const Menu: React.FC<NavProps> = ({
             </StyledBetaIcon>
           )}
         </Flex>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-          <ViewAlmPrice />
-          <div>
+        <TopWrapper>
+          <ViewAlmPrice isPushed={isPushed} />
+          <div style={{ display: 'flex', alignItems: 'center' }}>
             {loginBlockVisible && (
               <UserBlock
                 account={account}
@@ -239,7 +250,7 @@ const Menu: React.FC<NavProps> = ({
               {isPushed ? <CloseIcon color="primary" width="24" height="25" /> : <BurgerIcon width="24" height="24" />}
             </MenuButton2>
           </div>
-        </div>
+        </TopWrapper>
       </StyledNav>
       <BodyWrapper>
         <Panel
