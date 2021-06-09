@@ -11,7 +11,7 @@ const Styled = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 5px 0 12px;
-  transition: all 500ms ease-out;
+  transition: all 200ms ease-out;
   opacity: 0;
 
   &.visible {

@@ -48,6 +48,7 @@ export const StyledButton = styled.div`
   @media screen and (min-width: 768px) {
     .icon {
       border: 1.5px solid rgb(255, 255, 255);
+      padding: 0 0 0.5px 0.5px;
       display: flex;
       border-radius: 6px;
       margin-right: 14px;
