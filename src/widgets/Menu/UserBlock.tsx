@@ -79,23 +79,12 @@ const UserBlock: React.FC<Props> = (props) => {
       <ViewAlmPrice />
       <NetworkSwitch chainId={chainId} />
       {account ? (
-        <Button
-          size="md"
-          variant="tertiary"
-          onClick={() => {
-            onPresentAccountModal()
-          }}
-        >
+        <Button size="md" variant="tertiary" onClick={() => onPresentAccountModal()}>
           {accountEllipsis}
         </Button>
       ) : (
         <StyledConnectButton>
-          <Button
-            size="md"
-            onClick={() => {
-              onPresentConnectModal()
-            }}
-          >
+          <Button size="md" onClick={() => onPresentConnectModal()}>
             <StyledAddIcon>
               <AddIcon color="#fff" />
             </StyledAddIcon>

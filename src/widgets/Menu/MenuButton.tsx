@@ -1,35 +1,25 @@
 import styled from 'styled-components'
-import Button from '../../components/Button/Button'
 
-interface MenuButtonProps {
-  mobile?: boolean
-}
+export const MenuButton = styled.div`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
 
-const MenuButton = styled(Button)`
-  color: ${({ theme }) => theme.colors.text};
-  border-radius: 8px;
-  -webkit-tap-highlight-color: transparent;
-  display: ${(props: MenuButtonProps) => (props.mobile ? '' : 'none')};
+  border: 1px solid #d2d6e5;
+  border-radius: 6px;
   width: 40px;
   height: 40px;
+  margin-right: 6px;
 
   @media screen and (min-width: 768px) {
     padding: 0 8px;
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
   }
 
-  ${({ theme }) => theme.mediaQueries.nav} {
-    display: ${(props: MenuButtonProps) => (props.mobile ? 'none' : 'block')};
-  }
-
-  &:hover:not(:disabled):not(.button--disabled):not(:active) {
-    background: none;
+  @media screen and (min-width: 968px) {
+    display: none;
   }
 `
-MenuButton.defaultProps = {
-  variant: 'text',
-  size: 'sm',
-}
-
-export default MenuButton

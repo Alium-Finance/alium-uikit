@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Overlay from '../../components/Overlay/Overlay'
 import { Flex } from '../../components/Flex'
-import { Text } from '../../components/Text'
-import { useMatchBreakpoints } from '../../hooks'
-import Panel from './Panel'
-import UserBlock from './UserBlock'
-import { NavProps } from './types'
-import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from './config'
-import { LogoIcon as LogoWithText } from './icons'
-import MenuButton from './MenuButton'
+import Overlay from '../../components/Overlay/Overlay'
 import { BurgerIcon, CloseIcon } from '../../components/Svg'
 // import BetaIcon from '../../components/Svg/Icons/Beta'
 import Logo from '../../components/Svg/Icons/Logo'
+import { Text } from '../../components/Text'
+import { useMatchBreakpoints } from '../../hooks'
+import { MENU_HEIGHT, SIDEBAR_WIDTH_FULL, SIDEBAR_WIDTH_REDUCED } from './config'
+import { LogoIcon as LogoWithText } from './icons'
+import { MenuButton } from './MenuButton'
+import Panel from './Panel'
+import { NavProps } from './types'
+import UserBlock from './UserBlock'
 
 const Wrapper = styled.div`
   position: relative;
@@ -63,30 +63,6 @@ const MobileOnlyOverlay = styled(Overlay)`
 
   ${({ theme }) => theme.mediaQueries.nav} {
     display: none;
-  }
-`
-
-const StyledIcon = styled.div<{ reverse?: boolean }>`
-   {
-    margin-left: 20px;
-    cursor: pointer;
-    outline: none;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid ${({ theme }) => theme.colors.borderColor};
-    border-radius: 4px;
-  }
-
-  @media screen and (max-width: 968px) {
-    margin-left: 8px;
-  }
-
-  > * {
-    margin: auto;
-    transition: transform 200ms ease-in-out;
-    transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
   }
 `
 
@@ -166,13 +142,12 @@ const StyledText = styled(Text)`
 `
 
 const StyledClickableLink = styled.a`
-  color: #6C5DD3;
+  color: #6c5dd3;
   cursor: pointer;
-  
+
   :hover {
-    color: #8677F0;
+    color: #8677f0;
   }
-  
 `
 
 const Menu: React.FC<NavProps> = ({
@@ -190,9 +165,9 @@ const Menu: React.FC<NavProps> = ({
   explorerName,
   explorerLink,
   onTransactionHistoryHandler,
-  betaText='This is the Beta version. You can\'t add liquidity here anymore. Press here to switch to the main version.',
+  betaText = "This is the Beta version. You can't add liquidity here anymore. Press here to switch to the main version.",
   betaLink,
-  balanceHook
+  balanceHook,
 }) => {
   const { isXl } = useMatchBreakpoints()
   const isMobile = isXl === false
@@ -231,12 +206,16 @@ const Menu: React.FC<NavProps> = ({
           <StyledLogoWithoutText>
             <Logo width="40px" height="40px" />
           </StyledLogoWithoutText>
-          {false && betaText &&
+          {false && betaText && (
             <StyledBetaIcon isPushed={isPushed}>
               {/* <BetaIcon height="28px" width="43px" /> */}
-              <StyledText color="#8990A5">{betaText.slice(0,betaText?.lastIndexOf('here'))}<StyledClickableLink href={betaLink}>here</StyledClickableLink>{betaText.slice(betaText?.lastIndexOf('here')+4)}</StyledText>
+              <StyledText color="#8990A5">
+                {betaText.slice(0, betaText?.lastIndexOf('here'))}
+                <StyledClickableLink href={betaLink}>here</StyledClickableLink>
+                {betaText.slice(betaText?.lastIndexOf('here') + 4)}
+              </StyledText>
             </StyledBetaIcon>
-          }
+          )}
         </Flex>
         <Flex alignItems="center">
           {loginBlockVisible && (
@@ -253,16 +232,8 @@ const Menu: React.FC<NavProps> = ({
               {...options}
             />
           )}
-          <MenuButton aria-label="Toggle menu" onClick={() => setIsPushed((prevState: boolean) => !prevState)} mobile>
-            {isPushed ? (
-              <StyledIcon>
-                <CloseIcon color="primary" width="24" height="25" />
-              </StyledIcon>
-            ) : (
-              <StyledIcon>
-                <BurgerIcon width="24" height="24" />
-              </StyledIcon>
-            )}
+          <MenuButton aria-label="Toggle menu" onClick={() => setIsPushed((prevState: boolean) => !prevState)}>
+            {isPushed ? <CloseIcon color="primary" width="24" height="25" /> : <BurgerIcon width="24" height="24" />}
           </MenuButton>
         </Flex>
       </StyledNav>
