@@ -31,10 +31,6 @@ export const StyledButton = styled.div`
     height: 48px;
   }
 
-  @media screen and (min-width: 968px) {
-    display: none;
-  }
-
   .icon {
     margin-right: 14px;
     display: none;
