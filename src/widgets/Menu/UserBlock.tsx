@@ -5,7 +5,6 @@ import { useWalletModal } from '../WalletModal'
 import { Login } from '../WalletModal/types'
 import { ConnectButton } from './ConnectButton'
 import NetworkSwitch from './NetworkSwitch'
-import ViewAlmPrice from './ViewAlmPrice'
 
 interface Props {
   account?: string
@@ -75,7 +74,6 @@ const UserBlock: React.FC<Props> = (props) => {
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null
   return (
     <Flex alignItems="center">
-      <ViewAlmPrice />
       <NetworkSwitch chainId={chainId} />
       <ConnectButton
         isAccount={!!account}

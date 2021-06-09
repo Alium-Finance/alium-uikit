@@ -1,6 +1,7 @@
+import React, { FC } from 'react'
 import styled from 'styled-components'
 
-export const MenuButton2 = styled.div`
+export const StyledMenuButton2 = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -23,3 +24,11 @@ export const MenuButton2 = styled.div`
     display: none;
   }
 `
+
+type props = {
+  onClick: () => void
+}
+
+export const MenuButton2: FC<props> = ({ onClick }) => {
+  return <StyledMenuButton2 onClick={onClick} />
+}

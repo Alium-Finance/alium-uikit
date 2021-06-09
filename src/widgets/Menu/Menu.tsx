@@ -13,6 +13,7 @@ import { MenuButton2 } from './MenuButton2'
 import Panel from './Panel'
 import { NavProps } from './types'
 import UserBlock from './UserBlock'
+import ViewAlmPrice from './ViewAlmPrice'
 
 const Wrapper = styled.div`
   position: relative;
@@ -218,6 +219,7 @@ const Menu: React.FC<NavProps> = ({
           )}
         </Flex>
         <Flex alignItems="center">
+          <ViewAlmPrice />
           {loginBlockVisible && (
             <UserBlock
               account={account}
