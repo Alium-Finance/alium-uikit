@@ -11,13 +11,6 @@ const Styled = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 25px;
-
-  font-family: Roboto, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: 0.3px;
-  color: #0b1359;
   transition: all 500ms ease-out;
   opacity: 0;
 
@@ -32,9 +25,32 @@ const IconWrapper = styled.div`
   align-items: center;
   background: #dfefed;
   border-radius: 6px;
-  width: 40px;
-  height: 40px;
   margin-right: 8px;
+  width: 32px;
+  height: 32px;
+
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+`
+
+const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+  line-height: 14px;
+
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #0b1359;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    font-size: 14px;
+    line-height: 20px;
+  }
 `
 
 const ViewAlmPrice: FC = () => {
@@ -56,11 +72,13 @@ const ViewAlmPrice: FC = () => {
   }, [])
 
   return (
-    <Styled className={String(Boolean(price))}>
+    <Styled className={price ? 'true' : 'false'}>
       <IconWrapper>
         <IconTokenAlm />
       </IconWrapper>
-      ALM price: ${price}
+      <TextWrapper>
+        <span>ALM price:&nbsp;</span> <span> ${price}</span>
+      </TextWrapper>
     </Styled>
   )
 }

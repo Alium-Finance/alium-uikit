@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../../components/Button/Button'
+import Flex from '../../components/Flex/Flex'
+import { AddIcon } from '../../components/Svg'
 import { useWalletModal } from '../WalletModal'
 import { Login } from '../WalletModal/types'
-import { AddIcon } from '../../components/Svg'
 import NetworkSwitch from './NetworkSwitch'
-import Flex from '../../components/Flex/Flex'
+import ViewAlmPrice from './ViewAlmPrice'
 
 interface Props {
   account?: string
@@ -71,6 +72,7 @@ const UserBlock: React.FC<Props> = (props) => {
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null
   return (
     <Flex alignItems="center">
+      <ViewAlmPrice />
       <NetworkSwitch chainId={chainId} />
       {account ? (
         <Button
