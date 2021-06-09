@@ -26,13 +26,13 @@ export const StyledButton = styled.div`
   }
 
   &.logged-in {
-    background: #ffffff;
+    background: #ebedf9;
     color: #6c5dd3;
   }
 
   &.logged-in:hover {
     background: #6c5dd3;
-    color: #ebedf9;
+    color: #ffffff;
   }
 
   @media screen and (min-width: 768px) {
