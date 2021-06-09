@@ -4,7 +4,9 @@ import styled from 'styled-components'
 import { SvgProps } from '../../components/Svg'
 import Accordion from './Accordion'
 import * as IconModule from './icons'
+import { HamburgerCloseIcon } from './icons'
 import Logo from './Logo'
+import MenuButton from './MenuButton'
 import { LinkLabel, MenuEntry } from './MenuEntry'
 import MenuLink from './MenuLink'
 import { PanelProps, PushedProps } from './types'
@@ -55,26 +57,26 @@ const StyledIcon = styled.div`
 const StyledLinksPanel = styled.div`
   padding: 18px;
   ${({ theme }) => theme.mediaQueries.nav} {
-      padding-top: 33px;
-      padding-left: 17px;
-      padding-right: 17px;
-    }
-    @media screen and (max-width: 967px) {
-      > div:not(:last-child) {
+    padding-top: 33px;
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+  @media screen and (max-width: 967px) {
+    > div:not(:last-child) {
       border-bottom: 1px solid #F4F5FA;
-      }
-      > div > a {
-        font-weight: 500;
-      }
-      > div > div:first-child {
-        font-weight: 500;
-      }
-      > div > div:not(:first-child) > div > a {
-        color: #8990A5 !important;
-        font-weight: 500;
-      }
+    }
+    > div > a {
+      font-weight: 500;
+    }
+    > div > div:first-child {
+      font-weight: 500;
+    }
+    > div > div:not(:first-child) > div > a {
+      color: #8990A5 !important;
+      font-weight: 500;
     }
   }
+}
 `
 
 const StyledLogoIcon = styled.div`
@@ -95,6 +97,17 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links, toggle
       <StyledLogoIcon>
         <Logo isDark={isDark} href={homeLink?.href ?? '/'} isPushed={isPushed} />
       </StyledLogoIcon>
+      <MenuButton aria-label="Toggle menu" onClick={togglePush}>
+        {isPushed ? (
+          <StyledIcon>
+            <HamburgerCloseIcon width="6px" />
+          </StyledIcon>
+        ) : (
+          <StyledIcon reverse>
+            <HamburgerCloseIcon width="6px" />
+          </StyledIcon>
+        )}
+      </MenuButton>
       <StyledLinksPanel>
         {links.map((entry) => {
           const Icon = Icons[entry.icon]

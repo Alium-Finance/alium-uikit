@@ -9,7 +9,7 @@ import { Text } from '../../components/Text'
 import { useMatchBreakpoints } from '../../hooks'
 import { MENU_HEIGHT, SIDEBAR_WIDTH_FULL, SIDEBAR_WIDTH_REDUCED } from './config'
 import { LogoIcon as LogoWithText } from './icons'
-import { MenuButton } from './MenuButton'
+import { MenuButton2 } from './MenuButton2'
 import Panel from './Panel'
 import { NavProps } from './types'
 import UserBlock from './UserBlock'
@@ -232,9 +232,9 @@ const Menu: React.FC<NavProps> = ({
               {...options}
             />
           )}
-          <MenuButton aria-label="Toggle menu" onClick={() => setIsPushed((prevState: boolean) => !prevState)}>
+          <MenuButton2 aria-label="Toggle menu" onClick={() => setIsPushed((prevState: boolean) => !prevState)}>
             {isPushed ? <CloseIcon color="primary" width="24" height="25" /> : <BurgerIcon width="24" height="24" />}
-          </MenuButton>
+          </MenuButton2>
         </Flex>
       </StyledNav>
       <BodyWrapper>
