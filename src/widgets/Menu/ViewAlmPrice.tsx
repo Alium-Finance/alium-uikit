@@ -10,12 +10,16 @@ const Styled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 25px;
+  margin: 0 5px 0 12px;
   transition: all 500ms ease-out;
   opacity: 0;
 
   &.true {
     opacity: 1;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-right: 25px;
   }
 `
 
@@ -25,9 +29,9 @@ const IconWrapper = styled.div`
   align-items: center;
   background: #dfefed;
   border-radius: 6px;
-  margin: 0 5px 0 12px;
   width: 32px;
   height: 32px;
+  margin: 0 5px 0 0;
 
   @media screen and (min-width: 768px) {
     width: 40px;
