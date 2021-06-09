@@ -1,22 +1,22 @@
 import React from 'react'
-import styled from 'styled-components'
 import { useLocation } from 'react-router-dom'
+import styled from 'styled-components'
 import { SvgProps } from '../../components/Svg'
-import * as IconModule from './icons'
 import Accordion from './Accordion'
-import { MenuEntry, LinkLabel } from './MenuEntry'
-import MenuLink from './MenuLink'
-import { PanelProps, PushedProps } from './types'
-import MenuButton from './MenuButton'
+import * as IconModule from './icons'
 import { HamburgerCloseIcon } from './icons'
 import Logo from './Logo'
+import { MenuButton } from './MenuButton'
+import { LinkLabel, MenuEntry } from './MenuEntry'
+import MenuLink from './MenuLink'
+import { PanelProps, PushedProps } from './types'
 
 interface Props extends PanelProps, PushedProps {
   isMobile?: boolean
   togglePush?: () => void
 }
 
-const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> }
+const Icons = IconModule as unknown as { [key: string]: React.FC<SvgProps> }
 
 const Container = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ interface StyledIconProps {
 }
 
 const StyledIcon = styled.div`
-  {
+   {
     height: 24px;
     width: 24px;
     background: linear-gradient(0deg, #ffffff, #ffffff);
