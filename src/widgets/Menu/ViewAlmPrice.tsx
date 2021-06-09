@@ -98,7 +98,7 @@ const ViewAlmPrice: FC<props> = ({ isPushed }) => {
         <IconTokenAlm />
       </IconWrapper>
       <TextWrapper>
-        <span>ALM price:&nbsp;</span> <span> ${price}</span>
+        <span>ALM:&nbsp;</span> <span> ${price}</span>
       </TextWrapper>
     </Styled>
   )

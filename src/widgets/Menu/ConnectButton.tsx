@@ -25,12 +25,18 @@ export const StyledButton = styled.div`
     background: #8677f0;
   }
 
-  &.true {
-    background: #ebedf9;
+  &.logged-in {
+    background: #ffffff;
     color: #6c5dd3;
   }
 
+  &.logged-in:hover {
+    background: #6c5dd3;
+    color: #ebedf9;
+  }
+
   @media screen and (min-width: 768px) {
+    width: auto;
     padding: 0 24px;
     height: 48px;
   }
@@ -57,7 +63,7 @@ type props = {
 
 export const ConnectButton: FC<props> = ({ isAccount, accountEllipsis, onClick }) => {
   return (
-    <StyledButton className={isAccount ? 'true' : ''} onClick={onClick}>
+    <StyledButton className={isAccount ? 'logged-in' : ''} onClick={onClick}>
       {!isAccount && (
         <div className="icon">
           <AddIcon color="#ffffff" />
