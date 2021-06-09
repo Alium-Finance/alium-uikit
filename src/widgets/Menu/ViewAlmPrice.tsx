@@ -1,7 +1,10 @@
 import React, { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import getMainDomain from '../../util/getMainDomain'
+import Cookies from 'universal-cookie'
+import { getCookieOptions } from '../../config/getCookieOptions'
 import { IconTokenAlm } from './icons/IconTokenAlm'
+
+const cookies = new Cookies()
 
 const Styled = styled.div`
   display: flex;
@@ -36,15 +39,19 @@ const IconWrapper = styled.div`
 
 const ViewAlmPrice: FC = () => {
   const [price, setPrice] = useState<null | string>(null)
-  let mainDomain = getMainDomain()
-  mainDomain = mainDomain.includes('localhost') ? 'alium.finance' : mainDomain
+
   useEffect(() => {
-    fetch(`https://stat.${mainDomain}/api/get-price/alium-swap/usd`)
-      .then((rawResponse) => {
-        return rawResponse.json()
-      })
+    const cookieAlmPrice = cookies.get('alm-price')
+    setPrice(cookieAlmPrice ? String(cookieAlmPrice) : null)
+
+    fetch('https://api.coingecko.com/api/v3/coins/alium-swap')
+      .then((rawResponse) => rawResponse.json())
       .then((response) => {
-        setPrice(response?.data?.price)
+        const price = response?.market_data?.current_price?.usd
+        if (price) {
+          setPrice(price)
+          cookies.set('alm-price', price, getCookieOptions())
+        }
       })
   }, [])
 
