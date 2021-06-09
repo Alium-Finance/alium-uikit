@@ -218,26 +218,28 @@ const Menu: React.FC<NavProps> = ({
             </StyledBetaIcon>
           )}
         </Flex>
-        <Flex alignItems="center">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
           <ViewAlmPrice />
-          {loginBlockVisible && (
-            <UserBlock
-              account={account}
-              login={login}
-              logout={logout}
-              buttonTitle={buttonTitle}
-              balance={balance}
-              explorerName={explorerName}
-              explorerLink={explorerLink}
-              onTransactionHistoryHandler={onTransactionHistoryHandler}
-              balanceHook={balanceHook}
-              {...options}
-            />
-          )}
-          <MenuButton2 aria-label="Toggle menu" onClick={() => setIsPushed((prevState: boolean) => !prevState)}>
-            {isPushed ? <CloseIcon color="primary" width="24" height="25" /> : <BurgerIcon width="24" height="24" />}
-          </MenuButton2>
-        </Flex>
+          <div>
+            {loginBlockVisible && (
+              <UserBlock
+                account={account}
+                login={login}
+                logout={logout}
+                buttonTitle={buttonTitle}
+                balance={balance}
+                explorerName={explorerName}
+                explorerLink={explorerLink}
+                onTransactionHistoryHandler={onTransactionHistoryHandler}
+                balanceHook={balanceHook}
+                {...options}
+              />
+            )}
+            <MenuButton2 aria-label="Toggle menu" onClick={() => setIsPushed((prevState: boolean) => !prevState)}>
+              {isPushed ? <CloseIcon color="primary" width="24" height="25" /> : <BurgerIcon width="24" height="24" />}
+            </MenuButton2>
+          </div>
+        </div>
       </StyledNav>
       <BodyWrapper>
         <Panel
