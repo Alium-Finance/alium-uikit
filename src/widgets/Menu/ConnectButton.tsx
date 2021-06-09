@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import { AddIcon } from '../../components/Svg'
 
 export const StyledButton = styled.div`
+  width: 92px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 16px;
   height: 40px;
 
   border-radius: 6px;
@@ -21,6 +21,10 @@ export const StyledButton = styled.div`
   letter-spacing: 1px;
   color: #ffffff;
 
+  &:hover {
+    background: #8677f0;
+  }
+
   &.true {
     background: #ebedf9;
     color: #6c5dd3;
@@ -32,13 +36,15 @@ export const StyledButton = styled.div`
   }
 
   .icon {
-    margin-right: 14px;
     display: none;
   }
 
   @media screen and (min-width: 768px) {
     .icon {
-      display: initial;
+      border: 1.5px solid rgb(255, 255, 255);
+      display: flex;
+      border-radius: 6px;
+      margin-right: 14px;
     }
   }
 `

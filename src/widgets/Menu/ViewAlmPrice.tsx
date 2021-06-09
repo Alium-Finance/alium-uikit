@@ -30,7 +30,7 @@ const Styled = styled.div`
 `
 
 const IconWrapper = styled.div`
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   background: #dfefed;
@@ -38,6 +38,10 @@ const IconWrapper = styled.div`
   width: 32px;
   height: 32px;
   margin: 0 5px 0 0;
+
+  @media screen and (min-width: 375px) {
+    display: flex;
+  }
 
   @media screen and (min-width: 768px) {
     width: 40px;
@@ -81,8 +85,9 @@ const ViewAlmPrice: FC<props> = ({ isPushed }) => {
       .then((response) => {
         const price = response?.market_data?.current_price?.usd
         if (price) {
-          setPrice(price)
-          cookies.set('alm-price', price, getCookieOptions())
+          const fixedPrice = Number(price).toFixed(3)
+          setPrice(fixedPrice)
+          cookies.set('alm-price', fixedPrice, getCookieOptions())
         }
       })
   }, [])
