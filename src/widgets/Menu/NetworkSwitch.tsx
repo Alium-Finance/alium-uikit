@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { NetworksConfig } from '../WalletModal/types'
-import { networks } from '../WalletModal/config'
 import { ArrowDropDownIcon, ArrowDropUpIcon } from '../../components/Svg'
 import { getChainId, setChainId } from '../../util'
+import { networks } from '../WalletModal/config'
+import { NetworksConfig } from '../WalletModal/types'
 
 const StyledDropDown = styled.div`
   width: 232px;
@@ -35,6 +35,7 @@ const StyledDropDown = styled.div`
     top: 18px;
   }
   @media screen and (max-width: 967px) {
+    margin-right: 4px;
     width: 40px;
     height: 40px;
     display: flex;
