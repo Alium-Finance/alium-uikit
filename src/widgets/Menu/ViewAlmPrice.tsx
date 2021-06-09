@@ -59,7 +59,7 @@ const TextWrapper = styled.div`
   font-weight: 500;
   letter-spacing: 0.3px;
   color: #0b1359;
-  width: 45px;
+  width: 62px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
