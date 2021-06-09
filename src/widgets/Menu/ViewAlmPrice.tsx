@@ -10,7 +10,7 @@ const Styled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 25px;
+  margin-right: 25px;
   transition: all 500ms ease-out;
   opacity: 0;
 
@@ -25,7 +25,7 @@ const IconWrapper = styled.div`
   align-items: center;
   background: #dfefed;
   border-radius: 6px;
-  margin-right: 8px;
+  margin: 0 5px 0 12px;
   width: 32px;
   height: 32px;
 
@@ -45,11 +45,13 @@ const TextWrapper = styled.div`
   font-weight: 500;
   letter-spacing: 0.3px;
   color: #0b1359;
+  width: 62px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
     font-size: 14px;
     line-height: 20px;
+    width: auto;
   }
 `
 

@@ -23,7 +23,11 @@ interface Props {
 }
 
 const StyledConnectButton = styled.div`
-  margin-right: 10px;
+  margin-right: -10px;
+
+  @media screen and (max-width: 768px) {
+    margin-right: 10px;
+  }
 `
 
 const StyledAddIcon = styled.div`
