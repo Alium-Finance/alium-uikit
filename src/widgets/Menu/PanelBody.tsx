@@ -4,9 +4,7 @@ import styled from 'styled-components'
 import { SvgProps } from '../../components/Svg'
 import Accordion from './Accordion'
 import * as IconModule from './icons'
-import { HamburgerCloseIcon } from './icons'
 import Logo from './Logo'
-import { MenuButton } from './MenuButton'
 import { LinkLabel, MenuEntry } from './MenuEntry'
 import MenuLink from './MenuLink'
 import { PanelProps, PushedProps } from './types'
@@ -97,17 +95,6 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links, toggle
       <StyledLogoIcon>
         <Logo isDark={isDark} href={homeLink?.href ?? '/'} isPushed={isPushed} />
       </StyledLogoIcon>
-      <MenuButton aria-label="Toggle menu" onClick={togglePush}>
-        {isPushed ? (
-          <StyledIcon>
-            <HamburgerCloseIcon width="6px" />
-          </StyledIcon>
-        ) : (
-          <StyledIcon reverse>
-            <HamburgerCloseIcon width="6px" />
-          </StyledIcon>
-        )}
-      </MenuButton>
       <StyledLinksPanel>
         {links.map((entry) => {
           const Icon = Icons[entry.icon]
