@@ -13,6 +13,12 @@ export const StyledButton = styled.div`
   border-radius: 6px;
   margin-right: 6px;
   background: #6c5dd3;
+
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 1px;
   color: #ffffff;
 
   &.true {
@@ -35,7 +41,9 @@ export const StyledButton = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    display: initial;
+    .icon {
+      display: initial;
+    }
   }
 `
 
@@ -50,10 +58,10 @@ export const ConnectButton: FC<props> = ({ isAccount, accountEllipsis, onClick }
     <StyledButton className={isAccount ? 'true' : ''} onClick={onClick}>
       {!isAccount && (
         <div className="icon">
-          <AddIcon color="#fff" />
+          <AddIcon color="#ffffff" />
         </div>
       )}
-      {isAccount ? accountEllipsis : 'connect'}
+      {isAccount ? accountEllipsis : 'Connect'}
     </StyledButton>
   )
 }

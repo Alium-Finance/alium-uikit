@@ -34,8 +34,8 @@ const StyledDropDown = styled.div`
     right: 23px;
     top: 18px;
   }
-  @media screen and (max-width: 967px) {
-    margin-right: 4px;
+  @media screen and (max-width: 767px) {
+    margin-right: 6px;
     width: 40px;
     height: 40px;
     display: flex;

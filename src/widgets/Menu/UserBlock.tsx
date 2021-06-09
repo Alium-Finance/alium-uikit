@@ -77,7 +77,11 @@ const UserBlock: React.FC<Props> = (props) => {
     <Flex alignItems="center">
       <ViewAlmPrice />
       <NetworkSwitch chainId={chainId} />
-      <ConnectButton isAccount={!!account} accountEllipsis={accountEllipsis} onClick={() => onPresentAccountModal()} />
+      <ConnectButton
+        isAccount={!!account}
+        accountEllipsis={accountEllipsis}
+        onClick={() => (account ? onPresentAccountModal() : onPresentConnectModal())}
+      />
     </Flex>
   )
 }
