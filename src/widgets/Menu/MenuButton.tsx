@@ -7,11 +7,11 @@ export const MenuButton = styled.div`
   align-items: center;
   padding: 12px;
 
-  border: 1px solid #d2d6e5;
   border-radius: 6px;
+  margin-right: 6px;
+  border: 1px solid #d2d6e5;
   width: 40px;
   height: 40px;
-  margin-right: 6px;
 
   @media screen and (min-width: 768px) {
     padding: 0 8px;

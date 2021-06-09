@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from '../../components/Button/Button'
 import Flex from '../../components/Flex/Flex'
-import { AddIcon } from '../../components/Svg'
 import { useWalletModal } from '../WalletModal'
 import { Login } from '../WalletModal/types'
+import { ConnectButton } from './ConnectButton'
 import NetworkSwitch from './NetworkSwitch'
 import ViewAlmPrice from './ViewAlmPrice'
 
@@ -78,20 +77,7 @@ const UserBlock: React.FC<Props> = (props) => {
     <Flex alignItems="center">
       <ViewAlmPrice />
       <NetworkSwitch chainId={chainId} />
-      {account ? (
-        <Button size="md" variant="tertiary" onClick={() => onPresentAccountModal()}>
-          {accountEllipsis}
-        </Button>
-      ) : (
-        <StyledConnectButton>
-          <Button size="md" onClick={() => onPresentConnectModal()}>
-            <StyledAddIcon>
-              <AddIcon color="#fff" />
-            </StyledAddIcon>
-            <StyledButtonTitle>{buttonTitle}</StyledButtonTitle>
-          </Button>
-        </StyledConnectButton>
-      )}
+      <ConnectButton isAccount={!!account} accountEllipsis={accountEllipsis} onClick={() => onPresentAccountModal()} />
     </Flex>
   )
 }
