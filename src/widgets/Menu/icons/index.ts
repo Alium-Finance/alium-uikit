@@ -16,6 +16,7 @@ export { default as TicketIcon } from './Ticket'
 export { default as TradeIcon } from './Trade'
 export { default as MediumIcon } from './Medium'
 export { default as BscscanIcon } from './BscscanIcon'
+export { default as DextoolsIcon } from './DextoolsIcon';
 export { default as GitHubIcon } from './GitHub'
 export { default as CoinGeckoIcon } from './CoinGecko'
 export { default as TelegramIcon } from './Telegram'

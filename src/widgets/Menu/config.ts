@@ -95,6 +95,11 @@ export const socials = [
     icon: 'BscscanIcon',
     href: externalLinks.bscscan,
   },
+  {
+    label: 'Dextools',
+    icon: 'DextoolsIcon',
+    href: externalLinks.dextools,
+  },
 ]
 
 export const MENU_HEIGHT = 97

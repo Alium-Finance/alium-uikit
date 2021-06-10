@@ -1,7 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { GithubIcon, TelegramIcon, TwitterIcon, MediumIcon, CoingeckoIcon, BscscanIcon } from './social-icons'
+import {
+  GithubIcon,
+  TelegramIcon,
+  TwitterIcon,
+  MediumIcon,
+  CoingeckoIcon,
+  BscscanIcon,
+  DextoolsIcon,
+} from './social-icons'
 import { externalLinks } from '../../config'
 
 const StyledWrapper = styled.div`
@@ -25,6 +33,7 @@ const links = [
   { href: externalLinks.medium, Icon: MediumIcon },
   { href: externalLinks.coingecko, Icon: CoingeckoIcon },
   { href: externalLinks.bscscan, Icon: BscscanIcon },
+  { href: externalLinks.dextools, Icon: DextoolsIcon },
 ]
 
 const SocialNetworks = () => {
