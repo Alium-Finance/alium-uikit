@@ -100,6 +100,11 @@ export const socials = [
     icon: 'DextoolsIcon',
     href: externalLinks.dextools,
   },
+  {
+    label: 'Coin Market Cap',
+    icon: 'CoinMarketCapIcon',
+    href: externalLinks.coinMarketCap,
+  },
 ]
 
 export const MENU_HEIGHT = 97

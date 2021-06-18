@@ -1,16 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import { externalLinks } from '../../config'
 import {
+  BscscanIcon,
+  CoingeckoIcon,
+  CoinMarketCapIcon,
+  DextoolsIcon,
   GithubIcon,
+  MediumIcon,
   TelegramIcon,
   TwitterIcon,
-  MediumIcon,
-  CoingeckoIcon,
-  BscscanIcon,
-  DextoolsIcon,
 } from './social-icons'
-import { externalLinks } from '../../config'
 
 const StyledWrapper = styled.div`
   @media screen and (max-width: 1024px) {
@@ -34,6 +34,7 @@ const links = [
   { href: externalLinks.coingecko, Icon: CoingeckoIcon },
   { href: externalLinks.bscscan, Icon: BscscanIcon },
   { href: externalLinks.dextools, Icon: DextoolsIcon },
+  { href: externalLinks.coinMarketCap, Icon: CoinMarketCapIcon },
 ]
 
 const SocialNetworks = () => {
