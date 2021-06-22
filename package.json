@@ -17,7 +17,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest",
-    "prepare": "yarn release",
+    "prepare": "yarn build",
     "release": "yarn build && np --no-tests"
   },
   "jest": {
