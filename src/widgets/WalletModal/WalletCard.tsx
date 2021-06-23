@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Button from '../../components/Button/Button'
-import Text from '../../components/Text/Text'
-import { Login, WalletsConfig } from './types'
+import ConnectionLoad from '../../components/ConnectionLoad'
 import Flex from '../../components/Flex/Flex'
 import { CheckmarkCircleIcon } from '../../components/Svg'
+import Text from '../../components/Text/Text'
 import setConnectorId from '../../util/connectorId/setConnectorId'
-import ConnectionLoad from '../../components/ConnectionLoad'
+import { Login, WalletsConfig } from './types'
 
 interface Props {
   walletConfig: WalletsConfig
@@ -96,8 +96,10 @@ const WalletCard: React.FC<Props> = ({
     <StyledFlex
       flexDirection="column"
       alignItems="center"
-      onClick={title !== 'Metamask' && selectedNetwork === 'Huobi' ? undefined : onClickHandler}
-      isBlurred={title !== 'Metamask' && selectedNetwork === 'Huobi'}
+      onClick={
+        title !== 'Metamask' && ['Huobi', 'Polygon', 'Ethereum'].includes(selectedNetwork) ? undefined : onClickHandler
+      }
+      isBlurred={title !== 'Metamask' && ['Huobi', 'Polygon', 'Ethereum'].includes(selectedNetwork)}
     >
       <ConnectionLoad load={connectionLoad} />
       <StyledButton

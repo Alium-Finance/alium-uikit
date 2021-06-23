@@ -1,14 +1,12 @@
+import { isMobile } from 'react-device-detect'
+import Binance from './icons/Binance'
+import BinanceChain from './icons/BinanceChain'
+import Huobi from './icons/Huobi'
 import Metamask from './icons/Metamask'
-import MathWallet from './icons/MathWallet'
 import TokenPocket from './icons/TokenPocket'
 import TrustWallet from './icons/TrustWallet'
 import WalletConnect from './icons/WalletConnect'
-import BinanceChain from './icons/BinanceChain'
-import Binance from './icons/Binance'
-import Huobi from './icons/Huobi'
-
-import { WalletsConfig, ConnectorNames, NetworksConfig } from './types'
-import { isMobile } from 'react-device-detect'
+import { ConnectorNames, NetworksConfig, WalletsConfig } from './types'
 
 const isMobileWallet = (anotherWallet: ConnectorNames) => {
   return isMobile ? ConnectorNames.WalletConnect : anotherWallet
@@ -65,5 +63,17 @@ export const networks: NetworksConfig[] = [
     icon: Huobi,
     label: 'Huobi ECO Chain',
     chainId: 128,
+  },
+  {
+    title: 'Polygon',
+    icon: Huobi,
+    label: 'Polygon Matic Chain',
+    chainId: 137,
+  },
+  {
+    title: 'Ethereum',
+    icon: Huobi,
+    label: 'Ethereum Chain',
+    chainId: 1,
   },
 ]
