@@ -3,6 +3,7 @@ import Binance from './icons/Binance'
 import BinanceChain from './icons/BinanceChain'
 import Huobi from './icons/Huobi'
 import Metamask from './icons/Metamask'
+import PolygonMatic from './icons/PolygonMatic'
 import TokenPocket from './icons/TokenPocket'
 import TrustWallet from './icons/TrustWallet'
 import WalletConnect from './icons/WalletConnect'
@@ -66,14 +67,14 @@ export const networks: NetworksConfig[] = [
   },
   {
     title: 'Polygon',
-    icon: Huobi,
+    icon: PolygonMatic,
     label: 'Polygon Matic Chain',
     chainId: 137,
   },
-  {
-    title: 'Ethereum',
-    icon: Huobi,
-    label: 'Ethereum Chain',
-    chainId: 1,
-  },
+  // {
+  //   title: 'Ethereum',
+  //   icon: Huobi,
+  //   label: 'Ethereum Chain',
+  //   chainId: 1,
+  // },
 ]
