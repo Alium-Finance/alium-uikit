@@ -1,8 +1,9 @@
 import React from 'react'
+import Svg from '../../../components/Svg/Svg'
 
 export const IconArt: React.FC = () => {
   return (
-    <svg
+    <Svg
       width="24"
       height="25"
       viewBox="0 0 24 25"
@@ -42,6 +43,6 @@ export const IconArt: React.FC = () => {
         strokeWidth="1.5"
         strokeLinecap="round"
       />
-    </svg>
+    </Svg>
   )
 }
