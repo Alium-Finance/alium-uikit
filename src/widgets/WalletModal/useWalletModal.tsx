@@ -45,7 +45,7 @@ const useWalletModal = (
       tokenSymbol: 'ETH',
       networkName: 'Ethereum Chain',
     },
-    3: {
+    4: {
       tokenSymbol: 'ETH',
       networkName: 'Ethereum Chain Testnet Ropsten',
     },

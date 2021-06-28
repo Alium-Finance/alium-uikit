@@ -93,16 +93,16 @@ export const networksDev: NetworksConfig[] = [
     label: 'Huobi ECO Chain',
     chainId: 256,
   },
-  // {
-  //   title: 'Polygon',
-  //   icon: PolygonMatic,
-  //   label: 'Polygon Matic Chain',
-  //   chainId: 80001,
-  // },
-  // {
-  //   title: 'Ethereum',
-  //   icon: EtherIcon,
-  //   label: 'Ethereum Chain',
-  //   chainId: 3,
-  // },
+  {
+    title: 'Polygon',
+    icon: PolygonMatic,
+    label: 'Polygon Matic Chain',
+    chainId: 80001,
+  },
+  {
+    title: 'Ethereum',
+    icon: EtherIcon,
+    label: 'Ethereum Chain',
+    chainId: 4,
+  },
 ]
