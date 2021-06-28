@@ -9,7 +9,7 @@ export const IconArt: React.FC = () => {
       viewBox="0 0 24 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ fill: 'transparent' }}
+      style={{ fill: 'transparent', marginRight: '8px' }}
     >
       <rect
         x="0.75"
